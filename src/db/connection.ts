@@ -42,16 +42,20 @@ export class DatabaseConnection implements DatabaseConnection {
     try {
       // TODO: Implement actual database connection logic
       // This is scaffolding - replace with actual driver (e.g., mysql2, pg, mongodb)
-      console.log(`Connecting to database at ${this.config.host}:${this.config.port}`);
+      console.log(
+        `Connecting to database at ${this.config.host}:${this.config.port}`,
+      );
 
       // Simulate connection
       await new Promise((resolve) => setTimeout(resolve, 100));
 
       this.isConnected = true;
-      console.log('Database connection established');
+      console.log("Database connection established");
     } catch (error) {
       this.isConnected = false;
-      throw new Error(`Failed to connect to database: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Failed to connect to database: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
 
@@ -61,11 +65,13 @@ export class DatabaseConnection implements DatabaseConnection {
   async disconnect(): Promise<void> {
     try {
       // TODO: Implement actual disconnection logic
-      console.log('Disconnecting from database');
+      console.log("Disconnecting from database");
       this.isConnected = false;
-      console.log('Database connection closed');
+      console.log("Database connection closed");
     } catch (error) {
-      throw new Error(`Failed to disconnect from database: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Failed to disconnect from database: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
 
@@ -77,7 +83,7 @@ export class DatabaseConnection implements DatabaseConnection {
    */
   async query<T = unknown>(sql: string, params?: unknown[]): Promise<T[]> {
     if (!this.isConnected) {
-      throw new Error('Database is not connected. Call connect() first.');
+      throw new Error("Database is not connected. Call connect() first.");
     }
 
     try {
@@ -85,7 +91,9 @@ export class DatabaseConnection implements DatabaseConnection {
       console.log(`Executing query: ${sql}`, params);
       return [];
     } catch (error) {
-      throw new Error(`Query failed: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Query failed: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
 
@@ -95,9 +103,12 @@ export class DatabaseConnection implements DatabaseConnection {
    * @param params - Query parameters
    * @returns Number of affected rows
    */
-  async execute(sql: string, params?: unknown[]): Promise<{ affectedRows: number }> {
+  async execute(
+    sql: string,
+    params?: unknown[],
+  ): Promise<{ affectedRows: number }> {
     if (!this.isConnected) {
-      throw new Error('Database is not connected. Call connect() first.');
+      throw new Error("Database is not connected. Call connect() first.");
     }
 
     try {
@@ -105,7 +116,9 @@ export class DatabaseConnection implements DatabaseConnection {
       console.log(`Executing statement: ${sql}`, params);
       return { affectedRows: 0 };
     } catch (error) {
-      throw new Error(`Execution failed: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Execution failed: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
 }

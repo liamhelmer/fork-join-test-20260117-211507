@@ -3,7 +3,7 @@
  */
 
 export interface EnvironmentConfig {
-  nodeEnv: 'development' | 'production' | 'test';
+  nodeEnv: "development" | "production" | "test";
   apiUrl: string;
   apiPort: number;
   debug: boolean;
@@ -17,7 +17,7 @@ function getEnvString(key: string, defaultValue?: string): string {
   if (value === undefined && defaultValue === undefined) {
     throw new Error(`Environment variable ${key} is not set`);
   }
-  return value ?? defaultValue ?? '';
+  return value ?? defaultValue ?? "";
 }
 
 /**
@@ -44,7 +44,7 @@ function getEnvBoolean(key: string, defaultValue: boolean = false): boolean {
   if (value === undefined) {
     return defaultValue;
   }
-  return value === 'true' || value === '1' || value === 'yes';
+  return value === "true" || value === "1" || value === "yes";
 }
 
 /**
@@ -52,10 +52,12 @@ function getEnvBoolean(key: string, defaultValue: boolean = false): boolean {
  */
 export function loadEnvironmentConfig(): EnvironmentConfig {
   return {
-    nodeEnv: (process.env.NODE_ENV as 'development' | 'production' | 'test') || 'development',
-    apiUrl: getEnvString('API_URL', 'http://localhost'),
-    apiPort: getEnvNumber('API_PORT', 3000),
-    debug: getEnvBoolean('DEBUG', false),
+    nodeEnv:
+      (process.env.NODE_ENV as "development" | "production" | "test") ||
+      "development",
+    apiUrl: getEnvString("API_URL", "http://localhost"),
+    apiPort: getEnvNumber("API_PORT", 3000),
+    debug: getEnvBoolean("DEBUG", false),
   };
 }
 

@@ -4,7 +4,7 @@
  */
 
 export interface RequestConfig {
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   headers?: Record<string, string>;
   body?: unknown;
   timeout?: number;
@@ -21,7 +21,10 @@ export class ApiClient {
   private defaultHeaders: Record<string, string>;
   private defaultTimeout: number;
 
-  constructor(baseUrl: string, options?: { headers?: Record<string, string>; timeout?: number }) {
+  constructor(
+    baseUrl: string,
+    options?: { headers?: Record<string, string>; timeout?: number },
+  ) {
     this.baseUrl = baseUrl;
     this.defaultHeaders = options?.headers || {};
     this.defaultTimeout = options?.timeout || 30000;
@@ -32,12 +35,12 @@ export class ApiClient {
    */
   async request<T = unknown>(
     endpoint: string,
-    config: RequestConfig
+    config: RequestConfig,
   ): Promise<ApiResponse<T>> {
     const url = new URL(endpoint, this.baseUrl).toString();
 
     const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...this.defaultHeaders,
       ...config.headers,
     };
@@ -65,9 +68,12 @@ export class ApiClient {
   /**
    * Make a GET request
    */
-  async get<T = unknown>(endpoint: string, config?: Omit<RequestConfig, 'method' | 'body'>): Promise<ApiResponse<T>> {
+  async get<T = unknown>(
+    endpoint: string,
+    config?: Omit<RequestConfig, "method" | "body">,
+  ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, {
-      method: 'GET',
+      method: "GET",
       ...config,
     });
   }
@@ -78,10 +84,10 @@ export class ApiClient {
   async post<T = unknown>(
     endpoint: string,
     body: unknown,
-    config?: Omit<RequestConfig, 'method' | 'body'>
+    config?: Omit<RequestConfig, "method" | "body">,
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, {
-      method: 'POST',
+      method: "POST",
       body,
       ...config,
     });
@@ -93,10 +99,10 @@ export class ApiClient {
   async put<T = unknown>(
     endpoint: string,
     body: unknown,
-    config?: Omit<RequestConfig, 'method' | 'body'>
+    config?: Omit<RequestConfig, "method" | "body">,
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, {
-      method: 'PUT',
+      method: "PUT",
       body,
       ...config,
     });
@@ -108,10 +114,10 @@ export class ApiClient {
   async patch<T = unknown>(
     endpoint: string,
     body: unknown,
-    config?: Omit<RequestConfig, 'method' | 'body'>
+    config?: Omit<RequestConfig, "method" | "body">,
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, {
-      method: 'PATCH',
+      method: "PATCH",
       body,
       ...config,
     });
@@ -120,9 +126,12 @@ export class ApiClient {
   /**
    * Make a DELETE request
    */
-  async delete<T = unknown>(endpoint: string, config?: Omit<RequestConfig, 'method' | 'body'>): Promise<ApiResponse<T>> {
+  async delete<T = unknown>(
+    endpoint: string,
+    config?: Omit<RequestConfig, "method" | "body">,
+  ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, {
-      method: 'DELETE',
+      method: "DELETE",
       ...config,
     });
   }

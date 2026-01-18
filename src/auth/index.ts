@@ -14,7 +14,7 @@ import {
   RefreshTokenResponse,
   AuthError,
   AuthContext,
-} from './types';
+} from "./types";
 
 /**
  * Login user with email and password
@@ -23,7 +23,7 @@ import {
  */
 export async function login(request: LoginRequest): Promise<LoginResponse> {
   // Placeholder implementation
-  throw new Error('login() not yet implemented');
+  throw new Error("login() not yet implemented");
 }
 
 /**
@@ -31,9 +31,11 @@ export async function login(request: LoginRequest): Promise<LoginResponse> {
  * @param request - Registration request containing email, username, and password
  * @returns Registration response with user and authentication token
  */
-export async function register(request: RegisterRequest): Promise<RegisterResponse> {
+export async function register(
+  request: RegisterRequest,
+): Promise<RegisterResponse> {
   // Placeholder implementation
-  throw new Error('register() not yet implemented');
+  throw new Error("register() not yet implemented");
 }
 
 /**
@@ -42,10 +44,10 @@ export async function register(request: RegisterRequest): Promise<RegisterRespon
  * @returns New access token and expiration time
  */
 export async function refreshToken(
-  request: RefreshTokenRequest
+  request: RefreshTokenRequest,
 ): Promise<RefreshTokenResponse> {
   // Placeholder implementation
-  throw new Error('refreshToken() not yet implemented');
+  throw new Error("refreshToken() not yet implemented");
 }
 
 /**
@@ -54,7 +56,7 @@ export async function refreshToken(
  */
 export async function logout(token: AuthToken): Promise<void> {
   // Placeholder implementation
-  throw new Error('logout() not yet implemented');
+  throw new Error("logout() not yet implemented");
 }
 
 /**
@@ -64,7 +66,7 @@ export async function logout(token: AuthToken): Promise<void> {
  */
 export function isTokenValid(token: AuthToken): boolean {
   // Placeholder implementation
-  throw new Error('isTokenValid() not yet implemented');
+  throw new Error("isTokenValid() not yet implemented");
 }
 
 /**
@@ -74,7 +76,7 @@ export function isTokenValid(token: AuthToken): boolean {
  */
 export async function getCurrentUser(token: AuthToken): Promise<User | null> {
   // Placeholder implementation
-  throw new Error('getCurrentUser() not yet implemented');
+  throw new Error("getCurrentUser() not yet implemented");
 }
 
 /**
@@ -83,7 +85,10 @@ export async function getCurrentUser(token: AuthToken): Promise<User | null> {
  * @param token - Current authentication token
  * @returns Authentication context
  */
-export function createAuthContext(user: User | null, token: AuthToken | null): AuthContext {
+export function createAuthContext(
+  user: User | null,
+  token: AuthToken | null,
+): AuthContext {
   return {
     user,
     token,
@@ -103,4 +108,4 @@ export type {
   RefreshTokenResponse,
   AuthError,
   AuthContext,
-} from './types';
+} from "./types";

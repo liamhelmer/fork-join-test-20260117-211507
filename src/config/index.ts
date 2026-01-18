@@ -3,7 +3,7 @@
  * Main export file for all configuration
  */
 
-import { loadEnvironmentConfig, type EnvironmentConfig } from './environment';
+import { loadEnvironmentConfig, type EnvironmentConfig } from "./environment";
 
 /**
  * Main configuration interface
@@ -38,11 +38,18 @@ export function initializeConfig(): AppConfig {
  */
 export function getConfig(): AppConfig {
   if (!config) {
-    throw new Error('Configuration not initialized. Call initializeConfig() first.');
+    throw new Error(
+      "Configuration not initialized. Call initializeConfig() first.",
+    );
   }
   return config;
 }
 
 // Export environment types and utilities
-export type { EnvironmentConfig } from './environment';
-export { loadEnvironmentConfig, getEnvString, getEnvNumber, getEnvBoolean } from './environment';
+export type { EnvironmentConfig } from "./environment";
+export {
+  loadEnvironmentConfig,
+  getEnvString,
+  getEnvNumber,
+  getEnvBoolean,
+} from "./environment";

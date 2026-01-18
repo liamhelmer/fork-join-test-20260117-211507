@@ -17,7 +17,7 @@ export function isNullOrUndefined(value: unknown): value is null | undefined {
  * @returns true if string is empty or contains only whitespace
  */
 export function isEmptyString(str: string): boolean {
-  return typeof str !== 'string' || str.trim().length === 0;
+  return typeof str !== "string" || str.trim().length === 0;
 }
 
 /**
@@ -26,7 +26,7 @@ export function isEmptyString(str: string): boolean {
  * @returns A deep copy of the object
  */
 export function deepClone<T>(obj: T): T {
-  if (obj === null || typeof obj !== 'object') {
+  if (obj === null || typeof obj !== "object") {
     return obj;
   }
 
@@ -35,7 +35,7 @@ export function deepClone<T>(obj: T): T {
   }
 
   if (obj instanceof Array) {
-    return obj.map(item => deepClone(item)) as T;
+    return obj.map((item) => deepClone(item)) as T;
   }
 
   if (obj instanceof Object) {
@@ -82,7 +82,7 @@ export function capitalize(str: string): string {
  * @returns A promise that resolves after the delay
  */
 export async function delay(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 /**
