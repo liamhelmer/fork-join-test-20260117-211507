@@ -1,0 +1,12 @@
+{
+  "name": "fork-join-test-project",
+  "version": "1.0.0",
+  "description": "E2E test project for agent-fork-join plugin",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo 'Tests passed'",
+    "lint": "echo 'Lint passed'",
+    "typecheck": "echo 'Typecheck passed'"
+  },
+  "devDependencies": {}
+}

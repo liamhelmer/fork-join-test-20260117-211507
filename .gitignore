@@ -1,0 +1,9 @@
+# Agent fork-join plugin state files
+.fork-join/
+
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/

@@ -1,0 +1,5 @@
+{
+  "enabledPlugins": {
+    "agent-fork-join@enterprise-agent-flows": true
+  }
+}
